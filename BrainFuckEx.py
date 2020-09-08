@@ -41,14 +41,14 @@ class BrainFuckEx:
             elif p == "<": v -= 1
             elif p == "v": h += 1
             elif p == "^": h -=1
-            elif p == "+": self.values[v][h] += 1
-            elif p == "-": self.values[v][h] -= 1
-            elif p == "*": self.values[v][h] += self.values[v][0]*self.values[0][h]
+            elif p == "+": self.values[h][v] += 1
+            elif p == "-": self.values[h][v] -= 1
+            elif p == "*": self.values[h][v] += self.values[v][0]*self.values[0][h]
             elif p == "[": pass
             elif p == "]":
-                if self.values[v][h]: x = z[x] - 1
-            elif p == ".": data.append(chr(self.values[v][h]))
-            elif p == ",": self.values[v][h] = ord(input()[0])
+                if self.values[h][v]: x = z[x] - 1
+            elif p == ".": data.append(chr(self.values[h][v]))
+            elif p == ",": self.values[h][v] = ord(input()[0])
             elif p == "=": break;
             else: continue
             x += 1

@@ -1,10 +1,3 @@
-class Deque:
-    def __init__(self, val = []): self.value = val
-    def leftappend(self, val): self.value = [val] + self.value
-    def rightappend(self, val): self.value += [val]
-    def leftpop(self): q = self.value[0]; self.value = self.value[1:]; return q
-    def rightpop(self): q = self.value[-1]; self.value = self.value[:-1]; return q
-
 class BrainFuckEx:
     def __init__(self):
         self.values = [[0]*256 for _ in range(256)]
@@ -16,11 +9,12 @@ class BrainFuckEx:
         q = Deque()
         for i in range(len(code)):
             if code[i] == "[":
-                q.rightappend(i)
+                q.append(i)
             elif code[i] == "]":
-                idx = q.rightpop()
+                idx = q[-1]
                 book[idx] = i
                 book[i] = idx
+                q = q[-1]
         return book
 
     def Clear(self): self.__init__()

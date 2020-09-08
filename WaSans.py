@@ -1,11 +1,6 @@
 from BrainFuckEx import BrainFuckEx
 
 class Sans:
-    def __init__(self):
-        self.values = [[0]*256 for _ in range(256)]
-        self.vertical = 0
-        self.horizontal = 0
-
     def replaceAll(self, string, start, end):
         for i in range(len(start)):
             string = string.replace(start[i], end[i])
